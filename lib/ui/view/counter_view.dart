@@ -1,8 +1,6 @@
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 import 'package:flutter/material.dart';
 
-import '../shared/custom_app_menu.dart';
-
 class CounterView extends StatefulWidget {
   const CounterView({super.key});
 
@@ -17,8 +15,6 @@ class _CounterViewState extends State<CounterView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const CustomAppMenu(),
-        const Spacer(),
         const Text('Contador Stateful', style: TextStyle(fontSize: 20)),
         FittedBox(
           fit: BoxFit.contain,
@@ -46,7 +42,6 @@ class _CounterViewState extends State<CounterView> {
             ),
           ],
         ),
-        const Spacer(),
       ],
     );
   }
