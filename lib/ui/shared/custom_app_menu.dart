@@ -6,6 +6,7 @@ class CustomAppMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('CustomAppMenu build *****');
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       width: double.infinity,

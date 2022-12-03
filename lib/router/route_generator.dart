@@ -1,7 +1,8 @@
 import 'package:bases_web/ui/pages/counter_page.dart';
 import 'package:bases_web/ui/pages/counter_provider_page.dart';
 import 'package:bases_web/ui/pages/page_404.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -12,11 +13,6 @@ class RouteGenerator {
         return _fadeRoute(const CounterProviderPage(), '/provider');
       default:
         return _fadeRoute(const Page404(), '/404');
-
-      // MaterialPageRoute(
-      //   settings: const RouteSettings(name: '/404'),
-      //   builder: (_) => const Page404(),
-      // );
     }
   }
 
@@ -25,10 +21,17 @@ class RouteGenerator {
       settings: RouteSettings(name: routeName),
       pageBuilder: (_, __, ___) => child,
       // Transición entre pantallas
-      transitionsBuilder: (_, animation, __, ___) => FadeTransition(
-        opacity: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
-        child: child,
-      ),
+      transitionsBuilder: (_, animation, __, ___) => kIsWeb // SI ES WEB
+          ? FadeTransition(
+              opacity: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
+              child: child,
+            )
+          : CupertinoPageTransition(
+              primaryRouteAnimation: animation,
+              secondaryRouteAnimation: __,
+              linearTransition: true,
+              child: child,
+            ),
       transitionDuration: const Duration(milliseconds: 200),
     );
   }

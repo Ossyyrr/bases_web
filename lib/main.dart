@@ -15,10 +15,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/stateful',
-      // routes: {
-      //   '/stateful': (context) => const CounterPage(),
-      //   '/provider': (context) => const CounterProviderPage(),
-      // },
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
