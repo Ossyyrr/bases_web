@@ -26,11 +26,27 @@ class CustomAppMenu extends StatelessWidget {
         text: 'Otra Página',
         color: Colors.black,
       ),
+      const SizedBox(width: 10),
+      CustomFlatButton(
+        onPressed: () => locator<NavigationService>().navigateTo('/stateful/100'),
+        text: 'Stateful 100',
+        color: Colors.black,
+      ),
+      CustomFlatButton(
+        onPressed: () => locator<NavigationService>().navigateTo('/provider?q=200'),
+        text: 'Provider 200',
+        color: Colors.black,
+      ),
+      CustomFlatButton(
+        onPressed: () => locator<NavigationService>().navigateTo('/dashboard/users/abc123/admin'),
+        text: 'Ruta compleja',
+        color: Colors.black,
+      ),
     ];
 
     return LayoutBuilder(
         builder: (_, constraints) =>
-            constraints.maxWidth > 520 ? _TabletDesktopMenu(children: children) : _MobileMenu(children: children));
+            constraints.maxWidth > 820 ? _TabletDesktopMenu(children: children) : _MobileMenu(children: children));
   }
 }
 
