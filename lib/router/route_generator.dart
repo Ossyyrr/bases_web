@@ -4,6 +4,9 @@ import 'package:bases_web/ui/view/view_404.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+// ! Archivo antiguo
+// EN EL MAIN
+// onGenerateRoute: RouteGenerator.generateRoute,
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
